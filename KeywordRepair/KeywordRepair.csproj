@@ -9,6 +9,11 @@
 
   <ItemGroup>
     <None Remove="appsettings.json" />
+    <None Remove="Language\PxLanguagePlugin.en.deps.json" />
+    <None Remove="Language\PxLanguagePlugin.en.dll" />
+    <None Remove="Language\PxLanguagePlugin.en.dll.config" />
+    <None Remove="Language\PxLanguagePlugin.ga.deps.json" />
+    <None Remove="Language\PxLanguagePlugin.ga.dll" />
     <None Remove="Sql\Dimension.sql" />
     <None Remove="Sql\Matrix.sql" />
     <None Remove="Sql\Product.sql" />
@@ -47,6 +52,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Pluralize.NET.Core" Version="1.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Language\" />
   </ItemGroup>
 
 </Project>
