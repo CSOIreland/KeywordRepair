@@ -23,19 +23,21 @@ namespace KeywordRepair
             var configSection = configBuilder.GetSection("AppSettings");
 
             // get the configuration values in the section.
-            string enLocation = configSection["pluginPathEn"] ?? null;
-            if (enLocation != null)
+            //string enLocation = configSection["pluginPathEn"] ?? null;
+            var sections = configBuilder.GetSection("AppSettings:plugins").GetChildren();
+            foreach (var item in sections)
             {
-                ILanguagePlugin lngEn = Fetcher.ReadLanguageResource("en", enLocation, "PxLanguagePlugin.en.Language", "https://cdn.jsdelivr.net/gh/CSOIreland/PxLanguagePlugins@2.2.0/server/src/en/PxLanguagePlugin/Resources/language.json");
-                languages.Add("en", lngEn);
+                string? lngIsoCode = item.GetSection("lngIsoCode").Value;
+                string? location = item.GetSection("location").Value;
+                string? translation = item.GetSection("translationUrl").Value;
+                if(lngIsoCode != null && location != null)
+                {
+                    ILanguagePlugin lng = Fetcher.ReadLanguageResource(lngIsoCode, location, "PxLanguagePlugin." + lngIsoCode + ".Language", translation??"");
+                    languages.Add(lngIsoCode, lng);
+                }
             }
+            
 
-            string gaLocation= configSection["pluginPathGa"] ?? null;
-            if (gaLocation != null)
-            {
-                ILanguagePlugin lngGa = Fetcher.ReadLanguageResource("ga", gaLocation, "PxLanguagePlugin.ga.Language", "https://cdn.jsdelivr.net/gh/CSOIreland/PxLanguagePlugins@2.2.0/server/src/ga/PxLanguagePlugin/Resources/language.json");
-                languages.Add("ga", lngGa);
-            }
 
         }
 

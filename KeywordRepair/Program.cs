@@ -32,14 +32,14 @@ namespace KeywordRepair
             Writer writer = new();
             writer.cstring = connectionString;
 
-            writer.ClearKeywordRelease();
-            writer.ClearKeywordSubject();
-            writer.ClearKeywordProduct();
+            //writer.ClearKeywordRelease();
+            //writer.ClearKeywordSubject();
+            //writer.ClearKeywordProduct();
 
-            writer.WriteKeywordRelease(dtRelease);
+            //writer.WriteKeywordRelease(dtRelease);
 
-            writer.WriteKeywordSubject(dtSubject);
-            writer.WriteKeywordProduct(dtProduct);
+            //writer.WriteKeywordSubject(dtSubject);
+            //writer.WriteKeywordProduct(dtProduct);
 
 
             sw.Stop();
