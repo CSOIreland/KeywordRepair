@@ -55,6 +55,7 @@ namespace KeywordRepair
             dtKrl.Columns.Add("Mandatory", typeof(bool));
             dtKrl.Columns.Add("Singularised", typeof(bool));
 
+            Console.WriteLine("Processing matrix data...");
             int counter = 0;
             foreach (Matrix matrix in matrixes)
             {
@@ -67,6 +68,7 @@ namespace KeywordRepair
             }
             Console.WriteLine("Matrix data: " + counter + " items processed");
 
+            Console.WriteLine("Processing dimension data...");
             counter = 0;
             foreach (Dimension dimension in dimensions)
             {
@@ -76,6 +78,7 @@ namespace KeywordRepair
             }
             Console.WriteLine("Dimension data: " + counter + " items processed");
 
+            Console.WriteLine("Processing variable data...");
             counter = 0;
             foreach (Variable variable in variables)
             {
@@ -124,6 +127,7 @@ namespace KeywordRepair
             dtSbj.Columns.Add("Mandatory", typeof(bool));
             dtSbj.Columns.Add("Singularised", typeof(bool));
 
+            Console.WriteLine("Processing subject data...");
             int counter = 0;
             foreach (Subject subject in subjects)
             {
@@ -171,6 +175,8 @@ namespace KeywordRepair
             dtPrc.Columns.Add("PrcValue", typeof(string));
             dtPrc.Columns.Add("Mandatory", typeof(bool));
             dtPrc.Columns.Add("Singularised", typeof(bool));
+
+            Console.WriteLine("Processing product data...");
             int counter = 0;
             foreach (Product product in products)
             {
