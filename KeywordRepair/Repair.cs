@@ -63,7 +63,7 @@ namespace KeywordRepair
                 releaseKeywords.AddRange(Fetcher.ExtractSplitSingular(matrix.RlsId, matrix.MtrTitle, languages[matrix.LngIsoCode]));
                 releaseKeywords.Add(new Keyword() { Id = matrix.RlsId, Value = matrix.MtrCode.ToLower(), Mandatory = true, Singularised = false });
                 releaseKeywords.AddRange(Fetcher.ExtractSplit(matrix.RlsId, matrix.CprCode, languages[matrix.LngIsoCode]));
-                releaseKeywords.AddRange(Fetcher.ExtractSplit(matrix.RlsId, matrix.CprCode, languages[matrix.LngIsoCode]));
+                releaseKeywords.AddRange(Fetcher.ExtractSplit(matrix.RlsId, matrix.CprValue, languages[matrix.LngIsoCode]));
                 counter++;
             }
             Console.WriteLine("Matrix data: " + counter + " items processed");

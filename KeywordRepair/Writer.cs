@@ -29,7 +29,7 @@ namespace KeywordRepair
                 {
                     
                     SqlCommand cmd = new SqlCommand(sql, connection);
-                    
+                    cmd.CommandTimeout = 0;
                     connection.Open();
                     int counter = cmd.ExecuteNonQuery();
                     Console.WriteLine("KeywordRelease " + counter + " rows deleted");
@@ -50,7 +50,7 @@ namespace KeywordRepair
                 {
 
                     SqlCommand cmd = new SqlCommand(sql, connection);
-
+                    cmd.CommandTimeout = 0;
                     connection.Open();
                     int counter = cmd.ExecuteNonQuery();
                     Console.WriteLine("KeywordSubject " + counter + " rows deleted");
@@ -71,7 +71,7 @@ namespace KeywordRepair
                 {
 
                     SqlCommand cmd = new SqlCommand(sql, connection);
-
+                    cmd.CommandTimeout = 0;
                     connection.Open();
                     int counter = cmd.ExecuteNonQuery();
                     Console.WriteLine("KeywordProduct " + counter + " rows deleted");
@@ -89,6 +89,8 @@ namespace KeywordRepair
             {
                 using (SqlBulkCopy bulkCopy = new SqlBulkCopy(cstring))
                 {
+                    bulkCopy.BulkCopyTimeout = 0;
+                    bulkCopy.BatchSize = 0;
                     bulkCopy.DestinationTableName = krlTable;
                     bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("RlsId", "KRL_RLS_ID"));
                     bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("KrlValue", "KRL_VALUE"));
@@ -111,6 +113,8 @@ namespace KeywordRepair
             {
                 using (SqlBulkCopy bulkCopy = new SqlBulkCopy(cstring))
                 {
+                    bulkCopy.BulkCopyTimeout = 0;
+                    bulkCopy.BatchSize = 0;
                     bulkCopy.DestinationTableName = sbjTable;
                     bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("SbjId", "KSB_SBJ_ID"));
                     bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("SbjValue", "KSB_VALUE"));
@@ -133,6 +137,8 @@ namespace KeywordRepair
             {
                 using (SqlBulkCopy bulkCopy = new SqlBulkCopy(cstring))
                 {
+                    bulkCopy.BulkCopyTimeout = 0;
+                    bulkCopy.BatchSize = 0;
                     bulkCopy.DestinationTableName = prcTable;
                     bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("PrcId", "KPR_PRC_ID"));
                     bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("PrcValue", "KPR_VALUE"));
