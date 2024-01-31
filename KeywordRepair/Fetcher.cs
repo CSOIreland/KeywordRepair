@@ -15,7 +15,7 @@ namespace KeywordRepair
 {
     internal static class Fetcher
     {
-        internal static string cstring = "Server=10.7.4.41;Initial Catalog=pxstat.net.dev;User ID=pxstat;Password=m5_Mp4?w;Persist Security Info=False;";
+        internal static string cstring { get; set; }
         
         
         public static ILanguagePlugin ReadLanguageResource(string lngIsocode, string path, string namespaceClass, string translationUrl)
